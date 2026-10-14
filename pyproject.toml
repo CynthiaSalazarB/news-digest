@@ -1,0 +1,29 @@
+[project]
+name = "news-digest"
+version = "0.1.0"
+description = "Daily AI/tech and macro news digest: RSS in, keyword-filtered JSON out, pushed to a Notion dashboard"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "feedparser>=6.0.11",
+    "notion-client>=2.2.1",
+    "pydantic>=2.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["news_digest*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
